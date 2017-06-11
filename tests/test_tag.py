@@ -278,7 +278,7 @@ class TestTag(unittest.TestCase):
   def test_get_r128_loudness(self):
     refs = ((self.vorbis_filepath, -7.7, 2.6),
             (self.opus_filepath, -14.7, 1.1),
-            (self.mp3_filepath, -15.3, -0.1),
+            (self.mp3_filepath, -15.7, -0.1),
             (self.m4a_filepath, -20.6, 0.1))
     for filepath, level_ref, peak_ref in refs:
       level, peak = amg.tag.get_r128_loudness(filepath)
@@ -333,7 +333,7 @@ class TestTag(unittest.TestCase):
     ref_tags = {"TPE1": [artist],
                 "TALB": [album]}
     if amg.HAS_FFMPEG:
-      ref_tags.update({"TXXX:REPLAYGAIN_TRACK_GAIN": ["1.30 dB"],
+      ref_tags.update({"TXXX:REPLAYGAIN_TRACK_GAIN": ["1.70 dB"],
                        "TXXX:REPLAYGAIN_TRACK_PEAK": ["0.988553"]})
     for k, v in ref_tags.items():
       self.assertIn(k, tags)
